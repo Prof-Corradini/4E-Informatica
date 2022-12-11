@@ -19,12 +19,12 @@ Se trovate dei progetti interessanti premuratevi di farmelo sapere.
 **ATTENZIONE: nel caso vogliate creare un repository state attenti perchè di default vengono resi pubblici! Prudenza con i dati che caricate su questa o qualsiasi altra piattaforma.**
 
 ## Installazione
-Il consiglio, soprattutto all'inizio, è di utilizzare un GitClient che vi permette di gestire queste dinamiche visualmente, per questo motivo vi mostrerò come installare GitFork e come utilizzare le funzioni di base. 
+Il consiglio, soprattutto all'inizio, è di utilizzare un GitClient che vi permette di gestire queste dinamiche visualmente, per questo motivo vi mostrerò come installare GitFork. 
 Per i più temerari lascio anche il sito di [Git](https://gitforwindows.org/), l'originale, i comandi vengono eseguiti in [bash](https://it.wikipedia.org/wiki/Bash) che è l'attuale linguaggio utilizzato nel terminale Linux.
 
 [Installazione di GitFork](../../wiki/Installazione-di-GitFork)
 
 ## Guida all'utilizzo
-In questa guida, molto breve, vi mostro come controllare se sono presenti degli aggiornamenti nel repository e scaricarli.
+In questa guida, molto breve, vi mostro come controllare se sono presenti degli aggiornamenti nel repository e scaricarli tramite GitFork.
 
 [Utilizzo base di GitFork](../../wiki/Guida-all'utilizzo-di-base-di-GitFork)
