@@ -27,4 +27,4 @@ Per i più temerari lascio anche il sito di [Git](https://gitforwindows.org/), l
 ## Guida all'utilizzo
 In questa guida, molto breve, vi mostro come controllare se sono presenti degli aggiornamenti nel repository e scaricarli.
 
-[Installazione di GitFork](../../wiki/Guida-all'utilizzo-di-base-di-GitFork)
+[Utilizzo base di GitFork](../../wiki/Guida-all'utilizzo-di-base-di-GitFork)
