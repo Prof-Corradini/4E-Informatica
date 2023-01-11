@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="allez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-11 07:08:25 "/>
+        <attribute name="created" value="YWxsZXo7QUxFQ09SOzIwMjMtMDEtMTE7IjA1OjIyOjM4ICI7MjE1OQ=="/>
+        <attribute name="edited" value="YWxsZXo7QUxFQ09SOzIwMjMtMDEtMTE7IjA3OjA4OjI1ICI7MjsyMjcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="denominatore, numeratore, numeratoreIniziale, denominatoreIniziale, n, divisore, i" type="Integer" array="False" size=""/>
+            <declare name="flagRiducibile" type="Boolean" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <output expression="&quot;Di quante frazioni vuoi verificare l'irriducibilit&#224;?&quot;" newline="True"/>
+            <input variable="n"/>
+            <while expression="i &lt; n">
+                <do expression="numeratore &lt; 0 || denominatore &lt; 0 || denominatore &gt; numeratore">
+                    <output expression="&quot;&quot;" newline="True"/>
+                    <output expression="&quot;Inserisci la frazione n&#176;&quot; &amp;i" newline="True"/>
+                    <output expression="&quot;Numeratore: &quot;" newline="False"/>
+                    <input variable="numeratore"/>
+                    <output expression="&quot;Denominatore: &quot;" newline="False"/>
+                    <input variable="denominatore"/>
+                    <if expression="numeratore &lt; 0 || denominatore &lt; 0 || denominatore &gt; numeratore">
+                        <then>
+                            <output expression="&quot;La frazione non segue i vincoli del programma, reinseriscila&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </do>
+                <output expression="&quot;Trovo tutti i divisori del denominatore &quot;&amp;denominatore" newline="True"/>
+                <output expression="&quot; se il numeratore &#232; divisibile per uno di questi divisori allora significa che la frazione &#232; riducibile e quindi divido sia il numeratore che il denominatore per questo valore&quot;" newline="False"/>
+                <output expression="&quot;Salvo il valore originale del numeratore e del denominatore per verificare l'outputa alla fine&quot;" newline="True"/>
+                <output expression="&quot;Per verificare la divisibilit&#224; fra denominatore(numeratore) e divisore mi avvalgo della funzione resto: % e controllo che il risultato sia = 0, se &#232; cos&#236; vuol dire che la divisione intera &#232; possibile&quot;" newline="True"/>
+                <assign variable="flagRiducibile" expression="false"/>
+                <assign variable="divisore" expression="2"/>
+                <assign variable="numeratoreIniziale" expression="numeratore"/>
+                <assign variable="denominatoreIniziale" expression="denominatore"/>
+                <while expression="divisore &lt; (numeratore / 2)">
+                    <if expression="denominatore % divisore == 0">
+                        <then>
+                            <if expression="numeratore % divisore == 0">
+                                <then>
+                                    <assign variable="numeratore" expression="numeratore / divisore"/>
+                                    <assign variable="denominatore" expression="denominatore / divisore"/>
+                                    <assign variable="flagRiducibile" expression="true"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="divisore" expression="divisore + 1"/>
+                </while>
+                <if expression="flagRiducibile == true">
+                    <then>
+                        <output expression="&quot;&quot;" newline="True"/>
+                        <output expression="&quot;La frazione &quot; &amp;numeratoreIniziale" newline="False"/>
+                        <output expression="&quot;/&quot; &amp;denominatoreIniziale" newline="False"/>
+                        <output expression="&quot; &#232; riducibile&quot;" newline="False"/>
+                        <output expression="&quot; e risulta &quot; &amp;numeratore" newline="False"/>
+                        <output expression="&quot;/&quot; &amp;denominatore" newline="False"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;&quot;" newline="True"/>
+                        <output expression="&quot;La frazione &quot; &amp;numeratoreIniziale" newline="False"/>
+                        <output expression="&quot;/&quot; &amp;denominatoreIniziale" newline="False"/>
+                        <output expression="&quot; non &#232; riducibile&quot;" newline="False"/>
+                    </else>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Fine del programma&quot;" newline="False"/>
+        </body>
+    </function>
+</flowgorithm>

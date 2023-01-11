@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="allez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-11 06:24:28 "/>
+        <attribute name="created" value="YWxsZXo7QUxFQ09SOzIwMjMtMDEtMTE7IjA1OjIyOjM5ICI7MjE2MA=="/>
+        <attribute name="edited" value="YWxsZXo7QUxFQ09SOzIwMjMtMDEtMTE7IjA2OjI0OjI4ICI7MjsyMjcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="x, y, n, denominatore, numeratore, valoreAssoluto" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="funzione, risultato" type="Real" array="False" size=""/>
+            <assign variable="risultato" expression="0"/>
+            <assign variable="i" expression="0"/>
+            <output expression="&quot;Ho utilizzato un ciclo do-while perch&#232; in questo modo non devo per forza assegnare un valore alle variabili x e y per superare il controllo del ciclo, utilizzando il do-while il l'iterazione viene eseguita almeno una volta&quot;" newline="True"/>
+            <do expression="x&lt;0 || y&lt;0">
+                <output expression="&quot;Inserisci la variabile intera x&quot;" newline="True"/>
+                <input variable="x"/>
+                <output expression="&quot;Inserisci la variabile intera y&quot;" newline="True"/>
+                <input variable="y"/>
+                <output expression="&quot;Inserisci la variabile intera n&quot;" newline="True"/>
+                <input variable="n"/>
+            </do>
+            <output expression="&quot;f(x,y,i)    = numeratore / denominatore = risultato&quot;" newline="True"/>
+            <while expression="i&lt;n">
+                <assign variable="numeratore" expression="sqrt(3*x+4*y+i)"/>
+                <assign variable="valoreAssoluto" expression="sqrt((2*i)^2)"/>
+                <assign variable="denominatore" expression="valoreAssoluto + y^2"/>
+                <assign variable="funzione" expression="denominatore / numeratore"/>
+                <assign variable="risultato" expression="risultato+ funzione"/>
+                <output expression="&quot;f(&quot;" newline="False"/>
+                <output expression="&quot;&quot; &amp;x" newline="False"/>
+                <output expression="&quot;,&quot; &amp;y" newline="False"/>
+                <output expression="&quot;,&quot; &amp;i" newline="False"/>
+                <output expression="&quot;) = &quot;" newline="False"/>
+                <output expression="&quot;        &quot; &amp;denominatore" newline="False"/>
+                <output expression="&quot;         /              &quot; &amp;numeratore" newline="False"/>
+                <output expression="&quot;              = &quot; &amp;funzione" newline="True"/>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <output expression="&quot;Il risultato dell'equazione &#232;: &quot; &amp;risultato" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

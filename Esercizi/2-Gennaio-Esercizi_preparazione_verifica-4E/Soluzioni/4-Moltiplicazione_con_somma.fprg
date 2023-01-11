@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="allez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-11 07:50:05 "/>
+        <attribute name="created" value="YWxsZXo7QUxFQ09SOzIwMjMtMDEtMTE7IjA3OjEzOjIxICI7MjE1Mw=="/>
+        <attribute name="edited" value="YWxsZXo7QUxFQ09SOzIwMjMtMDEtMTE7IjA3OjUwOjA1ICI7MTsyMjY0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, j, num, risultato, appoggio" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <assign variable="j" expression="0"/>
+            <assign variable="appoggio" expression="0"/>
+            <output expression="&quot;Quanti numeri vuoi moltiplicare fra loro?&quot;" newline="True"/>
+            <input variable="n"/>
+            <while expression="i &lt; n">
+                <do expression="num &lt; 0">
+                    <output expression="&quot;&quot;" newline="True"/>
+                    <output expression="&quot;Inserisci il &quot;&amp;i" newline="False"/>
+                    <output expression="&quot;&#176; numero&quot;" newline="False"/>
+                    <input variable="num"/>
+                </do>
+                <if expression="i &gt; 0">
+                    <then>
+                        <while expression="j &lt; num - 1">
+                            <assign variable="risultato" expression="risultato + appoggio"/>
+                            <assign variable="j" expression="j+1"/>
+                        </while>
+                    </then>
+                    <else>
+                        <assign variable="risultato" expression="num"/>
+                    </else>
+                </if>
+                <assign variable="appoggio" expression="risultato"/>
+                <assign variable="j" expression="0"/>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+            <output expression="&quot;Il risultato finale: &quot; &amp;risultato" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
