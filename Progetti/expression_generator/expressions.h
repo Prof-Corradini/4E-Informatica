@@ -1,91 +1,94 @@
 #ifndef EXPRESSIONS_H
 #define EXPRESSIONS_H
-
 #include <iostream>
-#include <vector>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+#include <cstdio>
 
-
-namespace ExprUtils {
-    class Operator;
-    class Expression;
-    class UnaryExpr;
-    class BinaryExpr;
-}
-
-
+/* Header file */
+/* L'header file serve a dichiarare le classi e le funzioni di una libreria */
 using namespace std;
 
-
-class ExprUtils::Operator
-{
-    public:
-         Operator();
-         Operator(string op, int weight);
-    private:
-};
-
-
-class ExprUtils::Expression{
-    public:
-    Expression();
-    Expression(Operator op, string pattern);
-
-    Operator getOp();
-    
-    void setOp(Operator value);
-
+/* Classe operatore */
+// weight rappresenta il peso dell'operatore rispetto agli altri
+// va da 0 a 15, dove 0 è il peso maggiore
+class Operator {
+public:
+    Operator();
+    Operator(string, int, string);
+    string getOp();
     string getPattern();
 
-    void setPattern(string pattern);
- 
-    int getExpressionsNumber(string pattern);
-    
-    private:
-    Operator _operator;
+protected:
+    string _op = "+";
+    int _weight = 15;
     string _pattern;
-    vector<Expression> expressions;
+
+private:
 };
 
-class ExprUtils::UnaryExpr:Expression{
-    public:
+/* Classe espressione */
+class Expression {
+protected:
+    string* _e_str;
+    int _n_e_str = 1;
+    Expression* _e;
+    int _n_e;
+    Operator _op;
+    Operator* _op_lst;
+    int n_op_lst;
+
+public:
+    Expression();
+    Expression(Operator);
+    Expression(string*, int, Operator);
+    Expression(Expression*, int, Operator);
+
+    Expression* getExpression();
+    Expression& getExpr();
+    string getValue();
+
+
+protected:
+    string genPrimaryExpression();
+    Operator generateRandomOperator();
+    Expression generateRandomExpression();
+    bool checkOperator(Operator);
+    void setOperator(Operator);
+    void declareExpressions(int);
+    void declareStrExpressions(int);
+
+private:
+    string recursiveGetValue(Expression);
+
+};
+
+/* */
+class UnaryExpr : public Expression {
+public:
     UnaryExpr();
-    UnaryExpr(Operator op, char position);
-    void setExpression(string expr);
-    
-    private:
-    string _expr;
-};
+    UnaryExpr(Expression);
+    UnaryExpr(string, Operator);
+    UnaryExpr(Expression, Operator);
 
-
-class ExprUtils::BinaryExpr:Expression{
-    private:
-    string _expr1;
-    string _expr2;
-    Operator operator_lst[10] = {
-        Operator("+",  15),
-        Operator("-",  15),
-        Operator("/",  15),
-        Operator("*",  15),
-        Operator("=",  15),
-        Operator("==", 15),
-        Operator("!=", 15)
-    }; 
-
-    public:
-    BinaryExpr():Expression();
-
-    BinaryExpr(Operator op, string expr1, string expr2);
-
-    void setExpressions(string expr1, string expr2);
-
-    Operator getRandomOp();
-
-    int operatorLstLenght();
-
+protected:
+private:
+    void inizializeOperators();
 };
 
 
 
+class BinaryExpr : public Expression {
+public:
+    BinaryExpr();
+    BinaryExpr(Expression);
+    BinaryExpr(string, string, Operator);
+    BinaryExpr(Expression, Expression, Operator);
+protected:
+private:
+    void inizializeOperators();
+};
 
 
 #endif
