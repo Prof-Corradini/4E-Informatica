@@ -1,0 +1,38 @@
+#include <iostream>
+
+void print_array(int n_array, int array[]){
+    for(int i = 0; i < n_array; i++){
+        std::cout << array[i];
+        std::cout << ' ';
+    }
+    std::cout << '\n';
+}
+
+void print_array(int n_array, char array[]){
+    for(int i = 0; i < n_array; i++){
+        std::cout << (int)array[i];
+        std::cout << ' ';
+    }
+    std::cout << '\n';
+}
+
+
+int main() {
+    int vet0[4] = {1, 2};
+    print_array(4, vet0);
+
+    int vet1[] = {1, 2, 3, 4, 5, 6};
+    int n_vet1 = sizeof(vet1) / sizeof(int);
+    print_array(n_vet1, vet1);
+    
+    char vet2[6] = {'c', 'i', 'a', 'o'};
+    int n_vet2 = sizeof(vet2) / sizeof(char);
+    print_array(n_vet2, vet2);
+    
+    int vet3[4];
+    print_array(4, vet3);
+    
+    
+    
+    return 0;
+}
